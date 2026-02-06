@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pembayaran</title>
+<script src="https://app.midtrans.com/snap/snap.js" data-client-key="ISI_CLIENT_KEY"></script>
+</head>
+<body>
+<h3>Pilih Bank VA</h3>
+<button onclick="pay('bca')">BCA</button>
+<button onclick="pay('bri')">BRI</button>
+<button onclick="pay('bni')">BNI</button>
+<button onclick="pay('mandiri')">Mandiri</button>
+<script src="assets/midtrans.js"></script>
+</body>
+</html>
+
+====================================================
+INVOICE.HTML (PDF)
+====================================================
+<!DOCTYPE html>
+<html>
+<head>
+<title>Invoice</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+<div id="invoice">
+<h2>INVOICE</h2>
+<div id="data"></div>
+</div>
+<button onclick="html2pdf(document.getElementById('invoice'))">Cetak PDF</button>
+</body>
+</html>
