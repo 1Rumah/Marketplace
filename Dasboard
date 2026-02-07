@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin</title></head>
+<body>
+<h2>Dashboard Admin</h2>
+<ul>
+<li><a href="produk.html">Produk</a></li>
+<li><a href="pesanan.html">Pesanan</a></li>
+<li><a href="alamat.html">Alamat</a></li>
+</ul>
+</body>
+</html>
+
+====================================================
+APP.JS (KERANJANG)
+====================================================
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')||'[]');
+function addCart(n,p){cart.push({n,p});localStorage.setItem('cart',JSON.stringify(cart));alert('Ditambahkan');}
+if(document.getElementById('cart')){
+ let h='';let t=0;
+ cart.forEach(i=>{h+=`<p>${i.n} Rp ${i.p}</p>`;t+=i.p});
+ document.getElementById('cart').innerHTML=h+`<b>Total Rp ${t}</b>`;
+}
+</script>
+
+====================================================
+MIDTRANS.JS
+====================================================
+<script>
+function pay(bank){
+ fetch('backend/get-token.php',{method:'POST'})
+ .then(r=>r.json())
+ .then(d=>{
+  snap.pay(d.token);
+ });
+}
+</script>
